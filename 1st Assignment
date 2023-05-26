@@ -1,0 +1,42 @@
+􀀀* *Q1.** Given an array of integers nums and an integer target, return indices of the two
+numbers such that they add up to target.
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class TwoSum {
+    public static int[] twoSum(int[] nums, int target) {
+        // Create a HashMap to store the complement of each number and its index
+        Map<Integer, Integer> complementMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+
+            // Check if the complement exists in the HashMap
+            if (complementMap.containsKey(complement)) {
+                // Return the indices of the two numbers
+                return new int[]{complementMap.get(complement), i};
+            }
+
+            // Add the current number and its index to the HashMap
+            complementMap.put(nums[i], i);
+        }
+
+        // No two numbers add up to the target
+        return new int[0];
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+
+        int[] indices = twoSum(nums, target);
+        if (indices.length == 2) {
+            System.out.println("Indices: " + indices[0] + ", " + indices[1]);
+            System.out.println("Numbers: " + nums[indices[0]] + ", " + nums[indices[1]]);
+        } else {
+            System.out.println("No two numbers add up to the target.");
+        }
+    }
+}
