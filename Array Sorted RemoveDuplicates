@@ -1,0 +1,50 @@
+// Array is Sorted Already 
+
+public class RemoveDuplicates {
+	
+
+//	static int removeDupli(int[] arr) {
+//		int i=0; //1st unique element of Array
+//	for(int j=1; j<arr.length ; j++)	{
+//	  if(arr[i] != arr[j]) {
+//		arr[i+1]= arr[j];	
+//			 i++;
+//		}
+//	}
+//	 return i+1;
+//}
+//	
+	
+	 static int removeDupli(int[] arr) {
+	        int i = 0;
+	        for (int j = 1; j < arr.length; j++) {
+	            if (arr[i] != arr[j]) {
+	                i++;
+	                arr[i] = arr[j];
+	            }
+	        }
+	        return i + 1;
+	    }
+
+	public static void main(String[] args) {
+		
+		
+//		int arr[] = {1,2,1,1,1,2,2,4,3,4,3};
+//	int k = removeDupli(arr);
+//	  System.out.println("The array after removing duplicate elements is ");
+//        for (int i = 0; i < k; i++) {
+//            System.out.print(arr[i] + " ");
+//        }
+        
+		
+		  int arr[] = {1,1,2,2,2,3,3};
+	        int k = removeDupli(arr);
+	        System.out.println("The array after removing duplicate elements is ");
+	        for (int i = 0; i < k; i++) {
+	            System.out.print(arr[i] + " ");
+	        }
+		
+		
+    }
+
+}
